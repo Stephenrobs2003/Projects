@@ -1,27 +1,28 @@
 import random
 import turtle
 
-
+# Function to simulate flipping a coin 'n' times and return the proportion of heads
 def coinFlip(n):
     heads = 0
     for i in range(n):
         flip = random.random()
         if flip >= 0.5:
             heads = heads + 1
-    float_num = heads/n
+    float_num = heads / n
     return float_num
 
+# Function to simulate a dice game 'n' times and return the proportion of times the black dice is higher
 def diceGame(n):
     black_dice_higher = 0
     for i in range(n):
-        white_dice = random.randint(1,6)
-        black_dice = random.randint(1,6)
+        white_dice = random.randint(1, 6)
+        black_dice = random.randint(1, 6)
         if black_dice > white_dice:
             black_dice_higher = black_dice_higher + 1
-    test_result = black_dice_higher/n
+    test_result = black_dice_higher / n
     return test_result
 
-
+# Function to simulate generating random integers and return the proportion of times the integer is higher than a random threshold
 def highLow(n, min, max):
     higher_result = 0
     high_low = random.randint(min, max)
@@ -33,10 +34,11 @@ def highLow(n, min, max):
     high_low_result = higher_result / n
     return high_low_result
 
+# Function to simulate a roulette game where you always bet on odd numbers and return the final amount of money
 def alwaysOddRoulette(n):
     money = 0
     for i in range(n):
-        num = random.randint(0,36)
+        num = random.randint(0, 36)
         even = num % 2
         if even == 0:
             money = money - 1
@@ -44,8 +46,9 @@ def alwaysOddRoulette(n):
             money = money + 1
     return money
 
+# Function to draw a random bullseye using turtle graphics
 def randomBullsEye():
-    a = random.randint(50,100)
+    a = random.randint(50, 100)
     b = random.randint(50, 100)
     c = random.randint(50, 100)
     if a > b and a > c:
@@ -72,27 +75,11 @@ def randomBullsEye():
         else:
             med = b
             min = c
-        t= turtle.Turtle()
-        t.pendown()
-        t.circle(max)
-        t.fillcolor("red")
-        t.circle(med)
-        t.fillcolor("white")
-        t.circle(min)
-        t.fillcolor("red")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    t = turtle.Turtle()
+    t.pendown()
+    t.circle(max)
+    t.fillcolor("red")
+    t.circle(med)
+    t.fillcolor("white")
+    t.circle(min)
+    t.fillcolor("red")
