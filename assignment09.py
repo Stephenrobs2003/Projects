@@ -1,50 +1,44 @@
 import random
+
+# Function to color a letter green
 def green_letter(letter):
     return '\033[92m' + letter + '\033[0m'
 
-
+# Function to color a letter yellow
 def yellow_letter(letter):
     return '\033[93m' + letter + '\033[0m'
 
-
+# Function to generate a list of words from a file
 def generate_word_list():
     word_list = []
-    my_file = open("words.txt","r")
+    my_file = open("words.txt", "r")
     for line in my_file:
         word = line.strip(" ")
         word_list.append(word)
-        # word_list.append(line.strip(" "))
     my_file.close()
     return word_list
 
+# Function to get a valid guess from the user
 def get_guess(word_list):
     done = False
-    while done == False:
+    while not done:
         guess = input("Enter a guess: ")
         if guess in word_list:
             return guess
 
+# Function to pick a random word from the word list
 def pick_word(word_list):
     string = random.randint(0, len(word_list))
-    return (word_list[string])
+    return word_list[string]
 
-    # if len(word_list) > 0:
-    #     words = random.choice(word_list)
-    #     if words != "None":
-    #         print(words)
-
-    # my_file = open("words.txt","r")
-    # word_list = my_file.readlines()
-    # words = random.choice(word_list)
-    # my_file.close()
-    # print(words)
-
+# Function to check if the game is over
 def is_game_over(word, guesses):
     if len(guesses) == 6 or word in guesses:
         return True
     else:
         return False
 
+# Function to display the game board
 def display_board(word, guesses):
     print("+-----+")
     length_of_guesses = 0
